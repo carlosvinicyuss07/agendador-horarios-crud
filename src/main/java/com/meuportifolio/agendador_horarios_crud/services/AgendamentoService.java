@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -33,7 +34,7 @@ public class AgendamentoService {
         agendamentoRepository.deleteByDataHoraAgendamentoAndCliente(dataHoraAgendamento, cliente);
     }
 
-    public AgendamentoEntity buscarAgendamentosDoDia(LocalDate data) {
+    public List<AgendamentoEntity> buscarAgendamentosDoDia(LocalDate data) {
 
         LocalDateTime primeiraHoraDoDia = data.atStartOfDay();
         LocalDateTime horaFinalDoDia = data.atTime(23, 59, 59);

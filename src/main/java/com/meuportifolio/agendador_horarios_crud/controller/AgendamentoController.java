@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
+@RequestMapping("/agendamentos")
 @RequiredArgsConstructor
 public class AgendamentoController {
 
@@ -28,7 +30,7 @@ public class AgendamentoController {
     }
 
     @GetMapping
-    public ResponseEntity<AgendamentoEntity> buscarAgendamentosDoDia(@RequestParam LocalDate date) {
+    public ResponseEntity<List<AgendamentoEntity>> buscarAgendamentosDoDia(@RequestParam LocalDate date) {
         return ResponseEntity.ok().body(agendamentoService.buscarAgendamentosDoDia(date));
     }
 
